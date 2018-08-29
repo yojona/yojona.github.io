@@ -1,0 +1,97 @@
+﻿{
+	"name": "Brush",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "lastPair",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 766914699990170
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 204472941463893,
+					"parameters": {
+						"object": "Canvas"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 949598200046713,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "mouse-button-is-down",
+							"objectClass": "Mouse",
+							"sid": 903818881141140,
+							"parameters": {
+								"mouse-button": "left"
+							}
+						},
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 920440957976048,
+							"parameters": {
+								"variable": "lastPair",
+								"comparison": 1,
+								"value": "str(Mouse.X - Canvas.X&\",\"&Mouse.Y - Canvas.Y)"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "create-object",
+							"objectClass": "System",
+							"sid": 393160587009859,
+							"parameters": {
+								"object-to-create": "Point",
+								"layer": "0",
+								"x": "Mouse.X",
+								"y": "Mouse.Y"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 717169549755962,
+							"parameters": {
+								"variable": "lastPair",
+								"value": "Mouse.X - Canvas.X&\",\"&Mouse.Y - Canvas.Y"
+							}
+						},
+						{
+							"id": "push",
+							"objectClass": "Array",
+							"sid": 490609406456319,
+							"parameters": {
+								"where": "back",
+								"value": "lastPair",
+								"axis": "x"
+							}
+						},
+						{
+							"id": "add-item",
+							"objectClass": "List",
+							"sid": 408817231294256,
+							"parameters": {
+								"text": "lastPair"
+							}
+						}
+					],
+					"sid": 321460089137707
+				}
+			]
+		}
+	],
+	"sid": 838746583988106
+}

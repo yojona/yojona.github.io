@@ -1,0 +1,128 @@
+﻿{
+	"name": "Canvas",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "cursorX",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 500874231854506
+		},
+		{
+			"eventType": "variable",
+			"name": "cursorY",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 457833182251219
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 292959310711507,
+					"parameters": {
+						"object": "Canvas"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 792173294640536,
+					"parameters": {
+						"variable": "cursorX",
+						"value": "Mouse.X - Canvas.X"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 713920255109460,
+					"parameters": {
+						"variable": "cursorY",
+						"value": "Mouse.Y - Canvas.Y"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "coordX",
+					"sid": 347513715956781,
+					"parameters": {
+						"opacity": "lerp(Self.Opacity, 100, dt * 6)"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "coordY",
+					"sid": 980427881422745,
+					"parameters": {
+						"opacity": "lerp(Self.Opacity, 100, dt * 6)"
+					}
+				}
+			],
+			"sid": 970102515611219
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "else",
+					"objectClass": "System",
+					"sid": 739922829223793
+				}
+			],
+			"actions": [
+				{
+					"id": "set-opacity",
+					"objectClass": "coordX",
+					"sid": 333735855033481,
+					"parameters": {
+						"opacity": "lerp(Self.Opacity, 0, dt * 6)"
+					}
+				},
+				{
+					"id": "set-opacity",
+					"objectClass": "coordY",
+					"sid": 471862913898215,
+					"parameters": {
+						"opacity": "lerp(Self.Opacity, 0, dt * 6)"
+					}
+				}
+			],
+			"sid": 366208158199284
+		},
+		{
+			"eventType": "block",
+			"conditions": [],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "coordX",
+					"sid": 771175127261182,
+					"parameters": {
+						"text": "\"X: \"&cursorX"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "coordY",
+					"sid": 213401158631860,
+					"parameters": {
+						"text": "\"Y: \"&cursorY"
+					}
+				}
+			],
+			"sid": 572479341994625
+		}
+	],
+	"sid": 485199407994402
+}

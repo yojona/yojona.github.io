@@ -1,0 +1,235 @@
+﻿{
+	"name": "Main",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "Coords",
+			"type": "string",
+			"initialValue": "",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 566938837841984
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Canvas"
+		},
+		{
+			"eventType": "include",
+			"includeSheet": "Brush"
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "ClearButton",
+					"sid": 805199512990187
+				}
+			],
+			"actions": [
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 304092031951525,
+					"parameters": {
+						"name": "\"clearGesture\"",
+						"parameter-n": []
+					}
+				}
+			],
+			"sid": 501041981823361
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "CopyButton",
+					"sid": 853993114215848
+				}
+			],
+			"actions": [
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 178324255460613,
+					"parameters": {
+						"name": "\"copyGesture\"",
+						"parameter-n": []
+					}
+				}
+			],
+			"sid": 505442500302445
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-clicked",
+					"objectClass": "SaveButton",
+					"sid": 693787352810398
+				}
+			],
+			"actions": [
+				{
+					"id": "call-function",
+					"objectClass": "Function",
+					"sid": 627218625577767,
+					"parameters": {
+						"name": "\"saveGestureAsJson\"",
+						"parameter-n": []
+					}
+				}
+			],
+			"sid": 234494639881489
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-function",
+					"objectClass": "Function",
+					"sid": 963374542084630,
+					"parameters": {
+						"name": "\"copyGesture\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 323698045665363,
+					"parameters": {
+						"variable": "Coords",
+						"value": "\"\""
+					}
+				}
+			],
+			"sid": 508574350718032,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "for-each-element",
+							"objectClass": "Array",
+							"sid": 725087529817580,
+							"parameters": {
+								"axes": "x"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 188775671287829,
+							"parameters": {
+								"variable": "Coords",
+								"value": "Array.CurValue & \"|\""
+							}
+						}
+					],
+					"sid": 916687147264865
+				},
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 901409022600019,
+							"parameters": {
+								"variable": "Coords",
+								"value": "left(Coords,len(Coords)-1)"
+							}
+						},
+						{
+							"id": "set-clipboard-text",
+							"objectClass": "NWjs",
+							"sid": 492481013252374,
+							"parameters": {
+								"text": "Coords"
+							}
+						}
+					],
+					"sid": 807581572606633
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-function",
+					"objectClass": "Function",
+					"sid": 604289652934108,
+					"parameters": {
+						"name": "\"clearGesture\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-size",
+					"objectClass": "Array",
+					"sid": 108451780829723,
+					"parameters": {
+						"width": "0",
+						"height": "1",
+						"depth": "1"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 253139059450910,
+					"parameters": {
+						"variable": "Coords",
+						"value": "\"\""
+					}
+				},
+				{
+					"id": "destroy",
+					"objectClass": "Point",
+					"sid": 385882050600263
+				},
+				{
+					"id": "clear",
+					"objectClass": "List",
+					"sid": 476530135751787
+				}
+			],
+			"sid": 229490721780217
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-function",
+					"objectClass": "Function",
+					"sid": 407133737394807,
+					"parameters": {
+						"name": "\"saveGestureAsJson\""
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "download",
+					"objectClass": "Array",
+					"sid": 586578757251890,
+					"parameters": {
+						"filename": "\"data.json\""
+					}
+				}
+			],
+			"sid": 606463617044530
+		}
+	],
+	"sid": 752095406362746
+}
