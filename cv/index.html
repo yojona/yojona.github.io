@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.75">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <base target="_blank">
+    
+    <title> Jonathan Ayala - CV</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="md-col-12 pull-right">
+            <p id="switch-label" class="pull-left"> {{string.translatetospanish}} </p>
+            <input type="checkbox" onchange="toggle(this)" class="toggle-switch" id="switch"><label for="switch"></label>    
+        </div>
+        <div class="container">
+            <div class="col-md-12 col-xs-12">
+
+                <div class="col-md-5 col-md-offset-1">
+                    <div class="card">
+                            <div class="cover"></div>
+                            <div class="user center-block">
+                                    <img :src="info.picture" alt="Jonathan Ayala" id="avatar-circle">                                    
+                            </div>
+                            <h4 class="shortname text-center"> {{info.shortname}} </h4>
+                            <p class="about text-center"> {{string.about}} </p>
+                    </div>
+                </div>
+
+                <div class="col-md-5">
+                    <div class="card info">
+                        <h4> {{string.info}} </h4><br />
+                        <div>
+                            <i class="fa fa-user-circle" aria-hidden="true"></i>
+                            <span class="mamada"> {{info.name}}, {{info.age}} {{string.years}} </span><br>
+
+                            <i class="fa fa-globe" aria-hidden="true"></i>
+                            <span> {{info.place}} </span><br>
+
+                            <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                            <span> {{string.isw}}, {{info.edu}} </span><br>         
+                        
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <span> {{info.phone}} </span><br>
+
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <span> {{info.email}} </span><br>
+                            
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                            <span> {{info.love}} </span>                          
+
+                        </div>                        
+                    </div>
+                </div>
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="card">
+                        <h4> {{string.experience}} </h4> <br />
+                        <div v-for="job in experience">
+                            <div class="job">
+                                <span class="job-head"> {{job.profile}} {{string.in}} <a :href="job.link"> {{job.name}} </a> </span>
+                                <span class="job-time"> {{job.start}} - {{job.end}}  </span> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="card">
+                        <h4> {{string.projects}} </h4> <br />
+                        <div v-for="app in apps"class="app">
+                            <img :src="app.icon" :alt="app.name" class="app-icon">                                    
+                            <span class="app-name"> {{app.name}} </span><br>
+                            <span v-if="app.published" class="app-info"> + {{app.downloads}} {{string.downloads}} </span>
+                            <div class="pull-right">
+                                <div v-if="app.published">
+
+                                    <a :href="app.appstore" v-if="app.appstore"> 
+                                        <i class="fa fa-apple fa-2x" aria-hidden="true"></i>
+                                    </a>
+
+                                    <a :href="app.googleplay" v-if="app.googleplay">
+                                        <i class="fa fa-android fa-2x" aria-hidden="true"></i>
+                                    </a>
+                        
+                                </div>
+                                <div v-else>
+                                    {{string.nopublished}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="card">
+                        <h4> {{string.tech}} </h4> <br />
+                        <div v-for="tech in techs">
+                            <i class="fa fa-check" aria-hidden="true"></i>                                
+                            <span> {{tech}} </span>
+                        </div>
+                    </div>
+                </div>                 
+            </div>
+        </div>
+        <span class="madeWith"> {{string.made}} </span>
+        
+    </div>
+    <script src="js/vue.min.js"></script>  
+    <script src="js/moment.js"></script> 
+    <script src="js/app.js"></script>    
+    <script src="js/bootstrap.js"></script>
+    <script>
+        $("body").fadeIn("slow");
+    </script>
+</body>
+</html>

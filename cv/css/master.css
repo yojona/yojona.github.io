@@ -1,0 +1,176 @@
+body{
+    margin-top: 10px;
+    padding: 10px;
+    background: #E9EBEE;
+    display: none;
+}
+
+
+.card{
+    margin: 16px;
+    padding: 24px;
+    background: white repeat scroll;
+    border-radius: 2px;
+    box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.20);
+}
+
+
+.card .cover img {
+    width: 100%;
+  }
+
+h1, h2, h3, h4, h5, h6, span, i, p{
+    margin: 0;
+    color: #666;
+}
+
+#info{
+    display: block;
+    height: 100%;
+    background: #29A5D7;
+}
+
+.fa{
+    margin: 4px 8px;
+}
+
+#about{
+    font-size: 12px;
+    text-align: center;
+    margin: 16px 32px;
+}
+
+span{
+    font-size: 12px;
+}
+
+
+.job{
+    margin-left: 16px;
+    padding-bottom: 0px;
+    
+}
+.job-head:before{
+    font-family: FontAwesome;
+    content: "\f0b1";
+    display: inline-block;
+    margin-left: -8px;
+    padding-right: 8px;
+    vertical-align: middle;
+}
+
+.job-head{
+    display: block;
+    margin-bottom: -8px;
+    
+}
+.job-time{
+    font-size: 10px;
+    display: inline-block;
+    padding-left: 16px;   
+    margin-bottom: 12px;
+}
+
+.app{
+    margin-left: 8px;
+    margin-bottom: 32px;
+}
+.app-icon{
+    float: left;
+}
+.app-name{
+    padding-left: 16px;
+    font-size: 16px;
+}
+
+.app-info{
+    padding-left: 16px;       
+}
+
+.madeWith{
+    display:table;
+    margin: auto;
+    margin-bottom: 32px;
+}
+
+
+#switch-label{
+    line-height: 24px;
+}
+
+
+#avatar-circle{
+    margin-top: -56px;
+    padding: 4px;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    overflow: hidden;    
+}
+.card .user img {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 2px solid #FFFFFF;
+    margin:0 auto;
+    display:table;
+  }
+.card .cover {
+    margin: -24px;
+    height: 72px;
+    overflow: hidden;
+    border-radius: 2px 2px 0 0;
+    background-color: #3af;
+    
+}
+
+/* Checkbox */
+
+input[type=checkbox].toggle-switch{
+    display: none;
+}    
+
+input[type=checkbox].toggle-switch + label{
+    margin-left: 16px;
+    
+    display: inline-block;
+    width: 48px;
+    height: 24px;
+    border-radius: 24px;
+    background-color: #ddd;
+    outline: 0;
+    cursor: pointer;
+    transition: background-color 0.09s ease-in-out;
+    position: relative;
+}
+
+input[type=checkbox].toggle-switch:checked + label{
+    background-color: #3af;
+}
+input[type=checkbox].toggle-switch + label::after{
+    content: '';
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    border-radius: 24px;
+    position: absolute;
+    transform: scale(0.8);
+    left: 0;
+    transition: left 0.09s ease-in-out
+}
+
+input[type=checkbox].toggle-switch:checked + label::after{
+    left: 24px;
+    
+}
+
+.about{
+    padding-top: 10px;
+}
+
+.card.info span{
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 80%;
+    display: inline-block;
+    margin: -2px;
+}
